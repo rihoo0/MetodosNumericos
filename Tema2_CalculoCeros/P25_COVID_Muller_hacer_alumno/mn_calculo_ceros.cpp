@@ -73,6 +73,7 @@ int NiterMax, /// número de iteraciones máximo
 real TOL) /// tolerancia para parar el algoritmo
 {
   /// HACER ALUMNO
+
     real f_x0 = f(x0);
 
     for(int Niter = 0; Niter < NiterMax; Niter++){
@@ -82,23 +83,24 @@ real TOL) /// tolerancia para parar el algoritmo
         real fpp = mn_derivada2(f, x0);
 
         real z1, z2;
-        real Nraiz = mn_ceros_pol_grado_2(fpp / 2, fp, f_x0, z1, z2);
+        real Nroots = mn_ceros_pol_grado_2(fpp / 2, fp, f_x0, z1, z2);  ///z1 seria el valor de la raiz mas cerca de cero, que sera el que usemos
 
-        if(Nraiz == 0) return Niter;
+        if(Nroots == 0) return Niter;
 
         real x1 = x0 + z1;
 
-        if(mn_distancia(x1, x0) < TOL){
-                x0 = x1;
+        if(mn_distancia(x1 ,x0) < TOL){
+            x0 = x1;
             return Niter + 1;
         }
 
         x0 = x1;
         f_x0 = f(x0);
-
     }
+
     return -1;
 }
+
 
 /// APROXIMACIÓN DERIVADA PRIMERA DE UNA FUNCIÓN
 real mn_derivada1(
