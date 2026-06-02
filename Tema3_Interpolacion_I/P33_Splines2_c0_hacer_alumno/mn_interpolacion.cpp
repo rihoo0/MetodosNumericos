@@ -15,6 +15,23 @@ Array1D< real > &b,       /// vector de salida con los coeficientes b[i] del spl
 Array1D< real > &c)       /// vector de salida con los coeficientes c[i] del spline de grado 2
 {
   /// HACER ALUMNO
+    int N = x.dim();
+    ///Definimos el array para cada elemento
+    a = Array1D <real>(N - 1);
+    b = Array1D <real>(N - 1);
+    c = Array1D <real>(N - 1);
+
+    ///Se declara el primer valor de cada array
+    a[0] = f[0];
+    b[0] = ((f[1] - f[0] - c0 * (x[1] - x[0])*(x[1] - x[0])) / (x[1] - x[0]));
+    c[0] = c0;
+
+    for(int i = 1; i < N - 1; i++){ ///Se declara el valor para cada punto del array
+        a[i] = f[i];
+        b[i] = b[i - 1] + 2 * c[i - 1] * (x[i] - x[i - 1]);
+        c[i] = ((f[i + 1] - f[i] - b[i] * (x[i + 1] - x[i])) / ((x[i + 1] - x[i]) * (x[i + 1] - x[i])));
+    }
+    return 0;
 
 }
 
@@ -22,13 +39,24 @@ Array1D< real > &c)       /// vector de salida con los coeficientes c[i] del spl
   EVALUACIÓN SPLINE DE GRADO DOS. SE DEVUELVE EL VALOR DE LA
   EVALUACIÓN EN x0
 */
-real mn_evaluar_splines_2(
+real mn_evaluar_splines_2(  ///Tercer punto de la descripcion del algoritmo
 Array1D< real > &x,
 Array1D< real > &a,
 Array1D< real > &b,
 Array1D< real > &c,
 real x0 ){
   /// HACER ALUMNO
+    int N = a.dim();
 
+    if(x0 <= x[0]) return (a[0] + b[0] * (x0 - x[0]) + c[0] * (x0 - x[0]) * (x0 - x[0]));
+
+    if(x0 >= x[N - 1]) return a[N - 1] + b[N - 1] * (x0 - x[N - 1]) + c[N - 1] * (x0 - x[N - 1]) * (x0 - x[N - 1]);
+
+    for(int i = 0; i < N - 1; i++){
+        if(x[i] <= x0 && x0 <= x[i + 1]){
+            return a[i] + b[i] * (x0 - x[i]) + c[i] * (x0 - x[i]) * (x0 - x[i]);
+        }
+    }
+    return -1;
 }
 
