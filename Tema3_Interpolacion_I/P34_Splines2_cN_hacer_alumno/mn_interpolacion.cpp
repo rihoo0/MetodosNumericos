@@ -16,6 +16,25 @@ Array1D< real > &c)       /// vector de salida con los coeficientes c[i] del spl
 {
   /// HACER ALUMNO
 
+    int N = x.dim();
+
+    ///Declaramos las arrays
+    a = Array1D <real> (N - 1);
+    b = Array1D <real> (N - 1);
+    c = Array1D <real> (N - 1);
+
+    ///Declaramos los valores iniciales para cada array
+    c[N - 2] = cLast;
+    a[N - 2] = f[N - 2];
+    b[N - 2] = (f[N - 1] - f[N - 2] - c[N - 2] * (x[N - 1] - x[N - 2]) * (x[N - 1] - x[N - 2])) / (x[N - 1] - x[N - 2]);
+
+    for(int i = N - 3; i >= 0; i--){
+        a[i] = f[i];
+        b[i] = ((2* (f[i + 1] - f[i])) / (x[i + 1] - x[i])) - b[i + 1];
+        c[i] = (b[i + 1] * (x[i + 1] - x[i]) + f[i] - f[i + 1]) / ((x[i + 1] - x[i]) * (x[i + 1] - x[i]));
+    }
+    return 0;
+
 }
 
 /**
@@ -29,6 +48,19 @@ Array1D< real > &b,
 Array1D< real > &c,
 real x0 ){
   /// HACER ALUMNO
+
+    int N = a.dim();
+
+    if(x0 <= x[0]) return a[0] + b[0] * (x0 - x[0]) + c[0] * (x0 - x[0]) * (x0 - x[0]);
+
+    if(x0 >= x[N - 1]) return a[N - 1] + b[N - 1] * (x0 - x[N - 1]) + c[N - 1] * (x0 - x[N - 1]) * (x0 - x[N - 1]);
+
+    for(int i = 0; i < N - 1; i++){
+        if(x[i] <= x0 && x0 <= x[i + 1]){
+            return a[i] + b[i] * (x0 - x[i]) + c[i] * (x0 - x[i]) * (x0 - x[i]);
+        }
+    }
+    return -1;
 
 }
 
