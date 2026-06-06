@@ -27,8 +27,51 @@ Array1D< real > mn_gauss(
 Array2D< real > &A_original  /** MATRIZ DEL SISTEMA */,
 Array1D< real > &b_original) /** VECTOR DE TERMINOS INDEPENDINENTES */
 {
-  /// HACER ALUMNO
+    //Hacer alumno
 
+    // Si la matriz no es cuadrada o no coincide con el tamaño de b, error
+    if(A_original.dim1() != A_original.dim2() || A_original.dim1() != b_original.dim1())
+        return Array1D<real>();
+
+    // Hacemos copias para no modificar los datos originales
+    Array2D<real> A = A_original.copy();
+    Array1D<real> b = b_original.copy();
+    int N = A_original.dim1();
+
+    // k es la columna que estamos eliminando en esta iteración
+    for(int k = 0; k < A.dim1(); k++){
+
+        // Buscamos la fila con el valor absoluto más grande en la columna k
+        // (desde la fila k hacia abajo)
+        int kmax = max_pos(A, k);
+
+        // Si esa fila no es la actual, intercambiamos filas (pivotación física)
+        if(kmax != k){
+            for(int j = k; j < N; j++)
+                mn_pivotar(A[k][j], A[kmax][j]); // intercambia elemento a elemento
+            mn_pivotar(b[k], b[kmax]); // intercambia también el término independiente
+        }
+
+        // Si el pivote es 0 el sistema no tiene solución única, error
+        if(mn_abs(A[k][k]) == 0) return Array1D<real>();
+
+        // Para cada fila i por debajo de k, hacemos cero la columna k
+        for(int i = k+1; i < N; i++){
+            // m es el multiplicador: cuánto hay que restar de la fila k
+            // para que A[i][k] se vuelva 0
+            real m = A[i][k] / A[k][k];
+
+            // Restamos m veces la fila k a la fila i
+            for(int j = k; j < N; j++)
+                A[i][j] = A[i][j] - m * A[k][j];
+
+            // Lo mismo para el término independiente
+            b[i] = b[i] - m * b[k];
+        }
+    }
+
+    // La matriz ya es triangular, el remonte calcula la solución
+    return mn_remonte(A, b);
 }
 
 /// -----------------------------------------------------------
