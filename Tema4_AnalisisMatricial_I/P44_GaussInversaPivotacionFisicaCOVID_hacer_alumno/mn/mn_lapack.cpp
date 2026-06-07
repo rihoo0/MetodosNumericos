@@ -50,10 +50,30 @@ Array2D< real > mn_gauss_inversa(
 const Array2D< real > &A_original  /** MATRIZ  */)
 {
   /// HACER ALUMNO
+    Array2D<real> A = A_original.copy();
+    int N = A.dim1();
 
+    Array2D <real> B(N, A.dim2(), 0.);
+    for(int k = 0; k < N; k++) B[k][k] = 1.;
 
+    for(int k = 0; k < N; k++){
+        int kmax = max_pos(A, k);
+        if(A[kmax][k]==0.) return Array2D< real >();
+        if(kmax != k){
+            for(int j = 0; j < N; j++){
+                mn_pivotar(A[k][j], A[kmax][j]);
+                mn_pivotar(B[k][j], B[kmax][j]);
+            }
+        }
+        for(int i = k + 1; i < N; i++){
+            real m = -A[i][k] / A[k][k];
+            A[i][k] = 0;
+            for(int j = k + 1; j < N; j++) A[i][j] += m * A[k][j];
+            for(int j = 0; j < N; j++) B[i][j] += m * B[k][j];
+        }
+    }
+    return mn_remonte(A, B);
 }
-
 
 
 ///* FUNCION PARA LEER UNA MATRIZ DE DISCO DE DIMENSION dimension Y LO ALMACENA EN LA MATRIZ matriz  */
