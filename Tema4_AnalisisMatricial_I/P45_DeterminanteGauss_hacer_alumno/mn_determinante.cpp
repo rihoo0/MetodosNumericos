@@ -28,5 +28,22 @@ real mn_determinante_Gauss(Array2D< real > &M)
 {
   /// HACER ALUMNO
 
+    real deter = 1.;
+
+    for(int k = 0; k < M.dim1(); k++){
+        int kmax = max_pos(M, k);
+        if(kmax != k){
+            for(int j = 0; j < M.dim1(); j++){
+                mn_pivotar(M[k][j], M[kmax][j]);
+            }
+            deter *= -1.;
+        }
+        for(int i = k + 1; i < M.dim1(); i++){
+            real m = -M[i][k] / M[k][k];
+            for(int j = k + 1; j < M.dim1(); j++) M[i][j] += m * M[k][j];
+        }
+    }
+    for(int k = 0; k < M.dim1(); k++) deter *= M[k][k];
+    return deter;
 }
 
