@@ -29,6 +29,33 @@ Array1D< real > &b_original) /** VECTOR DE TERMINOS INDEPENDINENTES */
 {
   /// HACER ALUMNO
 
+    Array2D<real> A = A_original.copy();
+    Array1D <real> b = b_original.copy();
+    int N = A_original.dim1();
+
+    if(A.dim1() == 0 || A.dim2() != b.dim1() || A.dim1() != A.dim2()) return Array1D<real>();
+
+    for(int k = 0; k < A.dim1(); k++){
+        int kmax = max_pos(A, k);
+
+        if(kmax != k){
+            for(int j = k; j < A.dim1() - 1; j++ ){
+                mn_pivotar(A[k][j], A[kmax][j]);
+            }
+            mn_pivotar(b[k], b[kmax]);
+        }
+
+        for(int i = k + 1; i < N; i++){
+            real m = A[i][k] / A[k][k];
+            for(int j = 0; j < N; j++){
+                A[i][j] = A[i][j] - m * A[k][j];
+            }
+            b[i] = b[i] - m * b[k];
+        }
+    }
+
+    return mn_remonte(A, b);
+
 }
 
 /// -----------------------------------------------------------
