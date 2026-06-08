@@ -8,7 +8,28 @@
 Array2D< real > mn_cholesky_factorization(const Array2D< real > &A)
 {
    /// HACER ALUMNO
+    int N = A.dim1();
+    if(A.dim1() != A.dim2()) return Array2D<real>();
 
+    Array2D<real> B(N, N);
+
+    for(int i = 0; i < N; i++){
+        real sum = 0.;
+        for(int k = 0; k < i; k++) sum += B[i][k] * B[i][k];
+
+        if(A[i][i] < sum) return Array2D<real>();
+        B[i][i] = sqrt(A[i][i] - sum);
+
+        for(int j = i + 1; j < N; j++){
+            sum = 0.;
+            for(int k = 0; k < i; k++) sum += B[j][k] * B[i][k];
+            if(A[i][i] < sum) return Array2D<real>();
+
+            B[j][i] = (A[j][i] - sum) / B[i][i];
+            B[i][j] = B[j][i];
+        }
+    }
+    return B;
 }
 
 
@@ -16,8 +37,15 @@ Array2D< real > mn_cholesky_factorization(const Array2D< real > &A)
 Array1D< real > mn_cholesky (const Array2D< real > &A, const Array1D< real > &b)
 {
     /// HACER ALUMNO
+    Array2D<real> CH = mn_cholesky_factorization(A);
+    if(CH.dim1() == 0) return Array1D<real>();
 
+    Array1D<real> z = mn_descenso(CH, b);
+    if(z.dim1() == 0) return Array1D<real>();
 
+    Array1D<real> u = mn_remonte(CH, z);
+    if(u.dim1() == 0) return Array1D<real>();
+    return u;
 }
 
 /// FUNCION PARA RESOLVER UN SISTEMA TRIANGULAR INFERIOR
