@@ -47,31 +47,28 @@ int &Niter) /// número de iteraciones realizadas por el método
 {
 
   /// HACER ALUMNO
-  ///a y b son los puntos y f es la funcion que hay que dividir para calcular los ceros
-  real f_a = f(a);
-  real f_b = f(b);
+    real fa = f(a);
+    real fb = f(b);
 
-  if(f_a * f_b > 0.){
-    Niter = -1;
-    return(-1.);
-  }
-
-  Niter = 0;
-  while(mn_distancia(a, b) >= TOL){
-    real paso = (a + b) * 0.5;
-    real f_paso = f(paso);
-
-    if(f_paso == 0.) return paso;
-    if(f_a * f_paso < 0.){
-        b = paso;
-        f_b = f_paso;
-    } else {
-        a = paso;
-        f_a = f_paso;
+    if(fa * fb > 0){
+        Niter = -1.;
+        return 0;;
     }
-    Niter++;
-  }
-  return ((a + b) * 0.5);
+    Niter = 0.;
+    while(mn_distancia(a, b) >= TOL){
+        real m = (a + b) * 0.5;
+        real fm = f(m);
+        if(fm == 0) return m;
+        if(fa * fm < 0){
+            b = m;
+            fb = fm;
+        } else{
+            a=  m;
+            fa = fm;
+        }
+        Niter++;
+    }
+    return (a + b) * 0.5;
 }
 
 

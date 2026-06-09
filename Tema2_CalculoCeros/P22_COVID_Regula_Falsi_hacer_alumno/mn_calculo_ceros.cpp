@@ -47,34 +47,29 @@ real TOL,  /// tolerancia para parar las iteraciones del algoritmo
 int NiterMax) /// número máximo de iteraciones permitidas
 {
   /// HACER ALUMNO
-    real f_a = f(a);
-    real f_b = f(b);
+    real fa = f(a);
+    real fb = f(b);
+    x = a-((b - a)/(fb - fa))*fa;
+    real fx =f(x);
 
-    if(f_a * f_b > 0.){
-        return -1.;
-    }
-    x = (a - ((b - a) / (f_b - f_a)) * f_a);
-    real f_x = f(x);
+    for(int i = 0; i < NiterMax;i++){
+        if(fa * fb > 0) return -1;
+        if(fx == 0) return i;
 
-
-    for(int Niter = 0; Niter < NiterMax; Niter++){
-
-        if(f_x == 0.) return Niter;
-
-        if(f_a * f_x < 0.){
+        if(fa * fx < 0){
             b = x;
-            f_b = f_x;
+            fb = fx;
         } else {
-            a= x;
-            f_a = f_x;
+            a = x;
+            fa = fx;
         }
-        real x_new = (a - ((b - a) / (f_b - f_a)) * f_a);
-        if(mn_distancia(x, x_new) <= TOL){
-            x = x_new;
-            return Niter;
+        real xnew = a-((b - a)/(fb - fa))*fa;;
+        if(mn_distancia(x, xnew) <= TOL){
+            x = xnew;
+            return i;
         }
-        x = x_new;
-        f_x = f(x);
+        x = xnew;
+        fx = f(x);
     }
     return -1;
 }

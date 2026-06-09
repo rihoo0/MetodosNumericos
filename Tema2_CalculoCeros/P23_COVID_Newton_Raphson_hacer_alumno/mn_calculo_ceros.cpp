@@ -46,25 +46,20 @@ int NiterMax, /// número de iteraciones máximo
 real TOL) /// tolerancia para parar el algoritmo
 {
   /// HACER ALUMNO
-    real f_x0 = f(x0);
-    real x1;
-    real derivada;
-    for(int Niter = 0; Niter < NiterMax; Niter++){
-
-        if(f_x0 == 0) return Niter;
-
-        derivada = mn_derivada1(f, x0);
-        if(derivada == 0) return Niter;
-
-        x1 = x0 - (f_x0 / derivada);
-        f_x0 = f(x1);
-
-        if(mn_distancia(x1, x0) < TOL){
+    real fx0 = f(x0);
+    real d1 = mn_derivada1(f, x0);
+    for(int i = 0; i < NiterMax; i++){
+        if(fx0 == 0) return i;
+        real x1 = x0 - (fx0/d1);
+        if(mn_distancia(x1, x0) <= TOL){
             x0 = x1;
-            return Niter + 1;
+            return i;
         }
         x0 = x1;
+        fx0 = f(x0);
+        d1 = mn_derivada1(f, x0);
     }
+
     return -1;
 }
 
