@@ -29,14 +29,14 @@ int N /** numero de intervalos para calcular la integral */)
    /// HACER ALUMNO
     real integral = 0.;
     real h = (b - a) / N;
-    for(int k = 0; k <= N; k++){
-        real x = a + h * k;
-        real wx;
-        if(k == 0 || k == N) wx = 1.
-        else if(k % 2 != 0) wx = 4.;
-        else 2.;
-        integral += wx * f(x);
+    real xk = a;
+    for(int i = 0; i < N; i++){
+        real fxk = f(xk);
+        real xk1 = xk + h;
+        real fxk1 = f(xk1);
+        real fm = f((xk1 + xk) * 0.5);
+        integral += fxk + fxk1 + 4 * fm;
+        xk = xk1;
     }
-    return integral * wx * h;
-
+    return integral * h / 6.;
 }

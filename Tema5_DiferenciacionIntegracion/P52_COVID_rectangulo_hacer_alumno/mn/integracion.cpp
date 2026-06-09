@@ -27,22 +27,13 @@ int N /** numero de intervalos para calcular la integral */)
 {
    /// HACER ALUMNO
     real integral = 0.;
-
-    // anchura de cada rectángulo
     real h = (b - a) / N;
-
-    // punto medio del primer rectángulo: a + h/2
-    // (en vez de a + h*0 + h/2)
-    real x0 = a + 0.5*h;
-
-    // para cada rectángulo k, evaluamos f en su punto medio
-    // y acumulamos la altura
-    for(int k = 0; k < N; k++){
-        // punto medio del rectángulo k = x0 + h*k
-        integral += f(x0 + h * k);
+    real xk = a;
+    for(int i = 0; i < N; i++){
+        real xk1 = xk + h;
+        integral += f((xk1 + xk) / 2.);
+        xk = xk1;
     }
 
-    // multiplicamos la suma de alturas por la anchura h
-    // para obtener la suma de áreas
     return integral * h;
 }

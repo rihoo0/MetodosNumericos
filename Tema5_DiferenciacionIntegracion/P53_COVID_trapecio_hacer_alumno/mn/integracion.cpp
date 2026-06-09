@@ -29,12 +29,11 @@ int N /** numero de intervalos para calcular la integral */)
    /// HACER ALUMNO
     real integral = 0.;
     real h = (b - a) / N;
-    real fk = f(a);
-
-    for(int k = 0; k < N; k++){
-        real fk1 = f(a + (k + 1) * h);
-        integral += (fk + fk1);
-        fk = fk1;
+    real fxk = f(a);
+    for(int i = 0; i < N; i++){
+        real fxk1 = f(a + (i + 1) * h);
+        integral += fxk + fxk1;
+        fxk = fxk1;
     }
 
     return integral * h * 0.5;

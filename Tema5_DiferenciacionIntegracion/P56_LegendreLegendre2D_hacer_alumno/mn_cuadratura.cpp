@@ -26,15 +26,15 @@ Array2D< real > &w, /** matriz con los pesos de la tabla de cuadratura para el i
 int N) /** Nº de puntos a usar en la fórmula de cuadratura */
 {
    /// HACER ALUMNO
-
-   real integral = 0.;
-   for(int i = 0; i < N; i++){
-    real x2 = ((b - a) * x[N - 1][i] + b + a) / 2.;
-    for(int j = 0; j < N; j++){
-        real y2 = ((d - c) * x[N - 1][j] + d + c) / 2.;
-        integral += f(x2, y2) * w[N - 1][i] * w[N - 1][j];
+    real integral = 0.;
+    real zx, zy;
+    for(int i = 0; i < N; i++){
+        zx = ((b - a) * x[N - 1][i] + b + a) * 0.5;
+        for(int j = 0; j < N; j++){
+            zy = ((d - c) * x[N - 1][j] + d + c) * 0.5;
+            integral += f(zx, zy) * w[N - 1][i] * w[N - 1][j];
+        }
     }
-   }
-    return integral * (b-a) * (d-c) * 0.25;
+    return integral * 0.25 * (b - a) * (d - c);
 }
 
