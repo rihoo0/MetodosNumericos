@@ -27,16 +27,5 @@ real b /** extremo derecho del invervalo*/,
 int N /** numero de intervalos para calcular la integral */)
 {
    /// HACER ALUMNO
-    real integral = 0.;
-    real h = (b - a) / N;
-    real xk = a;
-    for(int i = 0; i < N; i++){
-        real fxk = f(xk);
-        real xk1 = xk + h;
-        real fxk1 = f(xk1);
-        real fm = f((xk1 + xk) * 0.5);
-        integral += fxk + fxk1 + 4 * fm;
-        xk = xk1;
-    }
-    return integral * h / 6.;
+
 }

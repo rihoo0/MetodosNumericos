@@ -29,35 +29,8 @@ Array1D< real > &b_original) /** VECTOR DE TERMINOS INDEPENDINENTES */
 {
   /// HACER ALUMNO
 
-    Array2D<real> A = A_original.copy();
-    Array1D <real> b = b_original.copy();
-    int N = b_original.dim();
-
-    if(A.dim1() == 0 || A.dim2() != b.dim() || A.dim1() != A.dim2()) return Array1D<real>();
-
-    for(int k = 0; k < b.dim() - 1; k++){
-        int kmax = max_pos(A, k);
-
-        if(kmax != k){
-            for(int j = k; j < b.dim(); j++ ){
-                mn_pivotar(A[k][j], A[kmax][j]);
-            }
-            mn_pivotar(b[k], b[kmax]);
-        }
-
-        for(int i = k + 1; i < N; i++){
-            real m = A[i][k] / A[k][k];
-            A[i][k] = 0;
-            for(int j = k + 1; j < N; j++){
-                A[i][j] = A[i][j] - m * A[k][j];
-            }
-            b[i] = b[i] - m * b[k];
-        }
-    }
-
-    return mn_remonte(A, b);
-
 }
+
 /// -----------------------------------------------------------
 /// FUNCION PARA RESOLVER UN SISTEMA TRIANGULAR A TRAVES DE UN REMONTE
 /// ------------------------------------------------------------

@@ -47,28 +47,28 @@ int &Niter) /// número de iteraciones realizadas por el método
 {
 
   /// HACER ALUMNO
+    //Se comprueba los puntos a y b
     real fa = f(a);
     real fb = f(b);
 
-    if(fa * fb > 0){
-        Niter = -1.;
-        return 0;;
-    }
-    Niter = 0.;
-    while(mn_distancia(a, b) >= TOL){
-        real m = (a + b) * 0.5;
-        real fm = f(m);
-        if(fm == 0) return m;
-        if(fa * fm < 0){
+    if(fa * fb > 0){Niter = -1; return 0.;} //Si la funcion tiene signo postivo no hacemos iteracion pq estamos en el punto 0.
+    Niter = 0;
+    //Mientras la distancia modulo a y b sea mayor que la toleracia comprobamos y avanazamos para hayar el punto que buscamos
+    while(mn_distancia(a, b) > TOL){
+        real m = (a + b) * 0.5; //Calculamos el punto medio m
+        real fm = f(m);         //Y si valor en la funcion
+        Niter++;                //Aumentamos el numeor de iteraciones
+
+        if(fm == 0) return m;   //si la funcion en el punto medio es igual a 0, quiere decir que ya hemos dado con el punto que buscamos
+        if(fa * fm < 0){        // si al hacer le producto cambia de signo, procedomos a sustuir para coger un nuevo intervalo
             b = m;
             fb = fm;
         } else{
-            a=  m;
+            a = m;
             fa = fm;
         }
-        Niter++;
     }
-    return (a + b) * 0.5;
+    return (a + b) * 0.5;   //Cuando termine el bucle devolvemos el punto medio de con a y b actualiazados
 }
 
 

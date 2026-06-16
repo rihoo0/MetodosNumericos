@@ -26,15 +26,6 @@ real &Px /** evaluación del polinomio en x*/,
 real &PPx /** evaluación de la derivada del polinomio en x*/){
   /// HACER ALUMNO
 
-    Px = a [a.dim() - 1];
-    PPx = a[a.dim() - 1];
-
-    for(int k = a.dim() - 2; k > 0; k--){
-        Px = Px * x + a[k];
-        PPx = PPx * x + Px;
-    }
-
-    Px = Px * x + a[0];
 }
 
 /// ****************************************************
@@ -44,15 +35,6 @@ real &PPx /** evaluación de la derivada del polinomio en x*/){
 Array1D< real > mn_calcular_derivada_polinomio(
 Array1D< real > &a /** coeficientes del polinomio */){
   /// HACER ALUMNO
-    if(a.dim() == 1) return Array1D <real>();
-
-    Array1D <real> b(a.dim() - 1);
-
-    for(int k = 0; k < a.dim() - 1; k++){
-        b[k] = (k + 1.) * a[k + 1];
-    }
-
-    return b;
 
 }
 

@@ -16,25 +16,6 @@ int M /** numero de intervalos en x para calcular la integral */,
 int N /** numero de intervalos en y para calcular la integral */)
 {
    /** HACER ALUMNO.*/
-    real integral = 0.;
-    real hx = (b - a) / M;
-    real hy = (d - c) / N;
-    for(int i = 0; i <= M; i++){
-        real x = a + hx * i;
-        real wx;
-        if(i == 0 || i == M) wx = 1.;
-        else if(i % 2 != 0) wx = 4.;
-        else    wx = 2.;
 
-        for(int j = 0; j <= N; j++){
-            real y = c + hy * j;
-            real wy;
-            if(j == 0 || j == N) wy = 1.;
-            else if(j % 2 != 0) wy = 4.;
-            else    wy = 2.;
-            integral += F(x, y) * wx * wy;
-        }
-    }
-    return integral * hy * hx /9.;
 }
 

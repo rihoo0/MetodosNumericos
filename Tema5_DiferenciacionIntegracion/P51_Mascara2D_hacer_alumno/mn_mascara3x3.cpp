@@ -11,24 +11,7 @@ Array2D< real > &F, /// función tabulada
 Array2D< real > &m) /// coeficientes máscara 3x3
 {
   /// HACER ALUMNO
-    Array2D<real> M(F.dim1(), F.dim2(), 0.);
 
-    for(int i = 0; i < F.dim1(); i++){
-        for(int j = 0; j < F.dim2(); j++){
-            for(int k = -1; k < 2; k++){
-                for(int l = -1; l < 2; l++){
-                    int ii = i + k;
-                    int jj = j + l;
-                    if(ii < 0) ii = 0;
-                    if(ii >= F.dim1()) ii = F.dim1() - 1;
-                    if(jj < 0) jj = 0;
-                    if(jj >= F.dim2()) jj = F.dim2() - 1;
-                    M[i][j] += m[k + 1][l + 1] * F[ii][jj];
-                }
-            }
-        }
-    }
-    return M;
 }
 
 /// FUNCIÓN QUE CALCULA LOS BORDES DE UNA IMAGEN PREVIAMENTE SUAVIZADA

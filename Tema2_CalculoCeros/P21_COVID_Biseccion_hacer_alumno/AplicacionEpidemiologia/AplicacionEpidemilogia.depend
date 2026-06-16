@@ -1,22 +1,22 @@
 # depslib dependency file v1.0
-1779991991 source:c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\mn_aritmeticas.cpp
+1780660049 source:c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\mn_aritmeticas.cpp
 	"mn_aritmeticas.h"
 	"math.h"
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\mn_aritmeticas.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\mn_aritmeticas.h
 
-1779992736 source:c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\aplicacionepidemiologia\main.cpp
+1780660049 source:c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\aplicacionepidemiologia\main.cpp
 	<stdio.h>
 	"../mn_calculo_de_ceros.h"
 	<stdlib.h>
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\mn_calculo_de_ceros.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\mn_calculo_de_ceros.h
 	<stdlib.h>
 	<math.h>
 	"mn_aritmeticas.h"
 	"tnt_array/tnt.h"
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt.h
 	"tnt_version.h"
 	"tnt_math_utils.h"
 	"tnt_array1d.h"
@@ -37,91 +37,91 @@
 	"tnt_vec.h"
 	"tnt_cmat.h"
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_version.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_version.h
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_math_utils.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_math_utils.h
 	<math.h>
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array1d.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array1d.h
 	<iostream>
 	<stdio.h>
 	<assert.h>
 	"tnt_i_refvec.h"
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_i_refvec.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_i_refvec.h
 	<cstdlib>
 	<iostream>
 	<assert.h>
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array2d.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array2d.h
 	<cstdlib>
 	<iostream>
 	<assert.h>
 	"tnt_array1d.h"
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array3d.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array3d.h
 	<cstdlib>
 	<iostream>
 	<assert.h>
 	"tnt_array1d.h"
 	"tnt_array2d.h"
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array1d_utils.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array1d_utils.h
 	<cstdlib>
 	<cassert>
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array2d_utils.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array2d_utils.h
 	<cstdlib>
 	<cassert>
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array3d_utils.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array3d_utils.h
 	<cstdlib>
 	<cassert>
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array1d.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array1d.h
 	<cstdlib>
 	<iostream>
 	<assert.h>
 	"tnt_i_refvec.h"
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array2d.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array2d.h
 	<cstdlib>
 	<iostream>
 	<assert.h>
 	"tnt_i_refvec.h"
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array3d.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array3d.h
 	<cstdlib>
 	<iostream>
 	<assert.h>
 	"tnt_i_refvec.h"
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array1d_utils.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array1d_utils.h
 	<iostream>
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array2d_utils.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array2d_utils.h
 	<iostream>
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array3d_utils.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array3d_utils.h
 	<cstdlib>
 	<cassert>
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_sparse_matrix_csr.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_sparse_matrix_csr.h
 	"tnt_array1d.h"
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_stopwatch.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_stopwatch.h
 	<time.h>
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_subscript.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_subscript.h
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_vec.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_vec.h
 	"tnt_subscript.h"
 	<cstdlib>
 	<cassert>
 	<iostream>
 	<sstream>
 
-1779991991 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_cmat.h
+1780660049 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_cmat.h
 	"tnt_subscript.h"
 	"tnt_vec.h"
 	<cstdlib>
@@ -129,139 +129,9 @@
 	<iostream>
 	<sstream>
 
-1779995005 source:c:\users\adria\desktop\uni\ejercicios c++ sin resolver\ejercicios c++ sin resolver\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\mn_calculo_ceros.cpp
+1781629240 source:c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\mn_calculo_ceros.cpp
 	"mn_calculo_de_ceros.h"
 	<stdio.h>
 	<stdlib.h>
 	<iostream>
-
-1780660050 source:c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\mn_aritmeticas.cpp
-	"mn_aritmeticas.h"
-	"math.h"
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\mn_aritmeticas.h
-
-1780660050 source:c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\aplicacionepidemiologia\main.cpp
-	<stdio.h>
-	"../mn_calculo_de_ceros.h"
-	<stdlib.h>
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\mn_calculo_de_ceros.h
-	<stdlib.h>
-	<math.h>
-	"mn_aritmeticas.h"
-	"tnt_array/tnt.h"
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt.h
-	"tnt_version.h"
-	"tnt_math_utils.h"
-	"tnt_array1d.h"
-	"tnt_array2d.h"
-	"tnt_array3d.h"
-	"tnt_array1d_utils.h"
-	"tnt_array2d_utils.h"
-	"tnt_array3d_utils.h"
-	"tnt_fortran_array1d.h"
-	"tnt_fortran_array2d.h"
-	"tnt_fortran_array3d.h"
-	"tnt_fortran_array1d_utils.h"
-	"tnt_fortran_array2d_utils.h"
-	"tnt_fortran_array3d_utils.h"
-	"tnt_sparse_matrix_csr.h"
-	"tnt_stopwatch.h"
-	"tnt_subscript.h"
-	"tnt_vec.h"
-	"tnt_cmat.h"
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_version.h
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_math_utils.h
-	<math.h>
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array1d.h
-	<iostream>
-	<stdio.h>
-	<assert.h>
-	"tnt_i_refvec.h"
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_i_refvec.h
-	<cstdlib>
-	<iostream>
-	<assert.h>
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array2d.h
-	<cstdlib>
-	<iostream>
-	<assert.h>
-	"tnt_array1d.h"
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array3d.h
-	<cstdlib>
-	<iostream>
-	<assert.h>
-	"tnt_array1d.h"
-	"tnt_array2d.h"
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array1d_utils.h
-	<cstdlib>
-	<cassert>
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array2d_utils.h
-	<cstdlib>
-	<cassert>
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_array3d_utils.h
-	<cstdlib>
-	<cassert>
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array1d.h
-	<cstdlib>
-	<iostream>
-	<assert.h>
-	"tnt_i_refvec.h"
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array2d.h
-	<cstdlib>
-	<iostream>
-	<assert.h>
-	"tnt_i_refvec.h"
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array3d.h
-	<cstdlib>
-	<iostream>
-	<assert.h>
-	"tnt_i_refvec.h"
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array1d_utils.h
-	<iostream>
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array2d_utils.h
-	<iostream>
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_fortran_array3d_utils.h
-	<cstdlib>
-	<cassert>
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_sparse_matrix_csr.h
-	"tnt_array1d.h"
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_stopwatch.h
-	<time.h>
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_subscript.h
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_vec.h
-	"tnt_subscript.h"
-	<cstdlib>
-	<cassert>
-	<iostream>
-	<sstream>
-
-1780660050 c:\users\adri\desktop\proyectos\metodosnumericos\tema2_calculoceros\p21_covid_biseccion_hacer_alumno\tnt_array\tnt_cmat.h
-	"tnt_subscript.h"
-	"tnt_vec.h"
-	<cstdlib>
-	<cassert>
-	<iostream>
-	<sstream>
 
