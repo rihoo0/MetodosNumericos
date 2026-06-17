@@ -5,34 +5,34 @@
 using namespace std;
 
 /// PARAMETROS DE LA DISTRIBUCION GAMMA
-real alfa,beta,d;
+real alfa,beta1,d;
 
 /// DISTRIBUCIÓN GAMMA
 real Gamma(real x){
   if(x<0) return 0;
-  return d*pow(x,alfa-1.)*exp(-beta*x);
+  return d*pow(x,alfa-1.)*exp(-beta1*x);
 }
 
 /// DERIVADA DE LA DISTRIBUCIÓN GAMMA
 real Gammap(real x){
   if(x<0) return 0;
-  return d*(alfa-1)*pow(x,alfa-2.)*exp(-beta*x)-d*beta*pow(x,alfa-1.)*exp(-beta*x);
+  return d*(alfa-1)*pow(x,alfa-2.)*exp(-beta1*x)-d*beta1*pow(x,alfa-1.)*exp(-beta1*x);
 }
 
 /// CALCULO DE LOS PARÁMETROS DE LA DISTRIBUCIÓN GAMMA A PARTIR DE LA
 /// MEDIA Y VARIANZA MUESTRAL
 void calculo_parametros_Gamma(real media, real varianza){
-  /// calculo de alfa y beta
-  beta=media/varianza;
-  alfa=media*beta;
+  /// calculo de alfa y beta1
+  beta1=media/varianza;
+  alfa=media*beta1;
 
   /// calculo de d a través de la integral (se verá en el tema 5)
   real h=0.001;
   real suma=0;
-  for(real x=0;x<100;x+=h) suma+=h*pow(x,alfa-1.)*exp(-beta*x);
+  for(real x=0;x<100;x+=h) suma+=h*pow(x,alfa-1.)*exp(-beta1*x);
   d=1./suma;
 
-  cout << "\nalfa = " << alfa << " beta = " << beta << " d = " << d << "\n";
+  cout << "\nalfa = " << alfa << " beta1 = " << beta1 << " d = " << d << "\n";
 
 }
 
@@ -46,7 +46,24 @@ int NiterMax, /// número de iteraciones máximo
 real TOL) /// tolerancia para parar el algoritmo
 {
   /// HACER ALUMNO
+    real fx0 = f(x0);                               //Se calcula el valor de x0 en la funcion
 
+    for(int i = 0; i < NiterMax; i++){             //Se hace un bucle para llegar al limite de las iteraciones dadas por el ejercicio
+        if(fx0 == 0) return i;                      //Si x0 en f ==, tenemos el punto que buscamos, por tanto devolvemos el Niter
+
+        real derivada = mn_derivada1(f, x0);        //Se calcula la derivada de x0 en f
+        if(derivada == 0) return -1;                //Si la derivada vale 0 se devuelve -1
+
+        real x1 = x0 - (fx0/derivada);              //Calculamos el valor de x1 y comprobamos
+        if(mn_distancia(x1, x0) < TOL){
+            x0 = x1;
+            return i;                               //Si la distancia es menor modulo de una TOL se indica que x0 = x1 y se devuelve el numero de iteraciones
+        }
+
+        x0 = x1;
+        fx0 = f(x1);                                //Cambiamos los valores para continuar buscando
+    }
+    return -1;
 }
 
 
