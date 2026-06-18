@@ -5,7 +5,7 @@
 
 1779991992 c:\users\adria\desktop\uni\ejercicios c++ sin resolver\tema2_calculoceros\p25_covid_muller_hacer_alumno\mn_aritmeticas.h
 
-1780155192 source:c:\users\adria\desktop\uni\ejercicios c++ sin resolver\tema2_calculoceros\p25_covid_muller_hacer_alumno\aplicacionepidemiologia\main.cpp
+1781800103 source:c:\users\adria\desktop\uni\ejercicios c++ sin resolver\tema2_calculoceros\p25_covid_muller_hacer_alumno\aplicacionepidemiologia\main.cpp
 	<stdio.h>
 	"../mn_calculo_de_ceros.h"
 	<stdlib.h>
@@ -128,4 +128,10 @@
 	<cassert>
 	<iostream>
 	<sstream>
+
+1781800089 source:c:\users\adria\desktop\uni\ejercicios c++ sin resolver\tema2_calculoceros\p25_covid_muller_hacer_alumno\mn_calculo_ceros.cpp
+	"mn_calculo_de_ceros.h"
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
 
