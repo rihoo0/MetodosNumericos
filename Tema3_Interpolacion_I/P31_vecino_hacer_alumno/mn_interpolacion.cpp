@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "mn_aritmeticas.h"
 #include "mn_interpolacion.h"
 
@@ -30,3 +31,20 @@ real x0)  /// punto donde se evalua la función interpolada
 
 
 
+=======
+#include "mn_aritmeticas.h"
+#include "mn_interpolacion.h"
+
+/// INTERPOLACION VECINO
+real mn_interpolacion_vecino(
+Array1D<real> &x, /// puntos de interpolación
+Array1D<real> &f, /// valores de función en los puntos de interpolación
+real x0)  /// punto donde se evalua la función interpolada
+{
+  /// HACER ALUMNO
+
+}
+
+
+
+>>>>>>> 6afedf6becadd2a3b25221d7d4400d720c22d1ef
