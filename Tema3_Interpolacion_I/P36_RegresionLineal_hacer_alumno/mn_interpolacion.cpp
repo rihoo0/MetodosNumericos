@@ -12,7 +12,21 @@ real &a, /// COMPONENTE a DE LA RECTA DE REGRESIÓN. (PARÁMETRO DE SALIDA)
 real &b) /// COMPONENTE b DE LA RECTA DE REGRESIÓN. (PARÁMETRO DE SALIDA)
 {
   ///HACER ALUMNO
+    if(x.dim() != y.dim() || x.dim() == 0) return -1;
 
+    int N = x.dim();
+    real sx=0, sy=0, sxx=0, sxy=0;
+    for(int i = 0; i < N; i++){
+        sx += x[i];
+        sy += y[i];
+        sxy += x[i] * y[i];
+        sxx += x[i] * x[i];
+    }
+    if((N*sxx - sx*sx) == 0) return -1;
+    a = (N*sxy - sx*sy) / (N*sxx - sx*sx);
+    b = (sxx*sy - sxy*sx) / (N*sxx - sx*sx);
+
+    return 0;
 }
 
 
