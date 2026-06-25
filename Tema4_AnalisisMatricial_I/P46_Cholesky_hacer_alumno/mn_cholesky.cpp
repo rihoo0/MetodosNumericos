@@ -8,7 +8,20 @@
 Array2D< real > mn_cholesky_factorization(const Array2D< real > &A)
 {
    /// HACER ALUMNO
+    Array2D<real> b(A.dim1(), A.dim2());
 
+    for(int i = 0; i < A.dim1(); i++) {
+        real sum = 0.;
+        for(int k = 0; k < i; k++) sum += b[i][k] * b[i][k];
+        b[i][i] = sqrt(A[i][i] - sum);
+        sum = 0.;
+        for(int j = i + 1; j < b.dim1(); j++){
+            for(int k = 0; k < i; k++) sum += b[j][k] * b[i][k];
+            b[j][i] = (1/b[i][i]) * (A[j][i] - sum);
+            b[i][j] = b[j][i];
+        }
+    }
+    return b;
 }
 
 
@@ -16,7 +29,12 @@ Array2D< real > mn_cholesky_factorization(const Array2D< real > &A)
 Array1D< real > mn_cholesky (const Array2D< real > &A, const Array1D< real > &b)
 {
     /// HACER ALUMNO
-
+    Array2D<real> CH = mn_cholesky_factorization(A);
+    if(CH.dim1() == 0) return Array1D<real>();
+    Array1D<real> z = mn_descenso(CH, b);
+    if(z.dim() == 0) return Array1D<real>();
+    Array1D<real> u = mn_remonte(CH, z);
+    return u;
 
 }
 
