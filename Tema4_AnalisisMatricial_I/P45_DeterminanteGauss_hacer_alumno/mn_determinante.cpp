@@ -27,6 +27,29 @@ int k /** posición diagonal */){
 real mn_determinante_Gauss(Array2D< real > &M)
 {
   /// HACER ALUMNO
+    Array2D<real> a = M.copy();
 
+    real signo = 1.;
+
+    for(int k = 0; k < a.dim1(); k++){
+        int kmax = max_pos(a, k);
+        if(kmax != k){
+            for(int j = k; j < a.dim1(); j++){
+                mn_pivotar(a[k][j], a[kmax][j]);
+            }
+        }
+
+        for(int i = k + 1; i < a.dim1(); i++){
+            real m = -a[i][k] / a[k][k];
+            a[i][k] = 0.;
+            for(int j = k + 1; j < a.dim1(); j++){
+                a[i][j] += m * a[k][j];
+            }
+        }
+    }
+
+    real det = signo;
+    for(int i = 0; i < a.dim1(); i++) det *= a[i][i];
+    return det;
 }
 
