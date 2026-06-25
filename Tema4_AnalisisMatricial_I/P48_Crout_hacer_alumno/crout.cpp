@@ -50,7 +50,21 @@ Array1D< real > &m,
 Array1D< real > &u)
 {
   /// HACER ALUMNO
+    int N = a.dim1();
 
+    l[0] = a[0];
+    u[0] = b[0] / l[0];
+
+    for(int i = 1; i < N - 1; i++){
+        m[i - 1] = c[i - 1];
+        l[i] = a[i] - m[i - 1] * u[i - 1];
+        u[i] = b[i] / l[i];
+    }
+
+    m[N - 2] = c[N - 2];
+    l[N - 1] = a[N - 1] - m[N - 2] * u[N - 2];
+
+    return 0;
 }
 
 /** la función crout_metodo_completo() resuelve un sistema tridiagonal usando el método de Crout
@@ -58,6 +72,17 @@ el vector t[] es el término independiente del sistema. La función devuelve el ve
 Array1D< real > crout_metodo_completo(Array1D< real > &a,Array1D< real > &b,Array1D< real > &c,Array1D< real > &t)
 {
   /// HACER ALUMNO
+  Array1D<real> l(a.dim());
+  Array1D<real> m(c.dim());
+  Array1D<real> u(b.dim());
+
+  int error = crout_descomposicion(a, b, c, l, m, u);
+  if(error < 0) return Array1D<real>();
+
+  Array1D<real> z = crout_descenso(l, m, t);
+
+  return crout_remonte(u, z);
+
 
 }
 
