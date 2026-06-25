@@ -8,26 +8,27 @@
 real mn_determinante_recursivo(Array2D< real > &A)
 {
   /// HACER ALUMNO
-  if(A.dim1() == 0 || A.dim1() != A.dim2()) return 0;
+    if(A.dim1() != A.dim2()) return 0;
+    int N = A.dim1();
 
-  if(A.dim1() == 1) return A[0][0];
+    if(N > 1){
+        real det = 0.;
+        for(int k = 0; k < N; k++){
+            Array2D<real> Ak(N - 1, N - 1);
 
-  real deter = 0;
-
-  for(int k = 0; k < A.dim1(); k++){
-    Array2D <real> B(A.dim1() - 1, A.dim2() - 1);
-
-    for(int i = 0; i < B.dim1(); i++){
-        for(int j = 0; j < B.dim1(); j++){
-
-            if(j < k) B[i][j] = A[i + 1][j];
-            else B[i][j] = A[i + 1][j + 1];
+            for(int i = 1; i < N; i++){
+                int col = 0;
+                for(int j = 0; j < N; j++){
+                    if(j != k){
+                        Ak[i - 1][col] = A[i][j];
+                        col++;
+                    }
+                }
+            }
+            real signo = (k % 2 == 0) ? 1:-1;
+            det += signo * A[0][k]*mn_determinante_recursivo(Ak);
         }
-    }
-    if(k % 2 == 0) deter += A[0][k] * mn_determinante_recursivo(B);
-    else deter -= A[0][k] * mn_determinante_recursivo(B);
-  }
-  return deter;
-
+        return det;
+    } else return A[0][0];
 }
 
