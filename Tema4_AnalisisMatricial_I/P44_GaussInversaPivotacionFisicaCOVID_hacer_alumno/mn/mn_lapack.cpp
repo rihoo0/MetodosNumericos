@@ -50,6 +50,27 @@ Array2D< real > mn_gauss_inversa(
 const Array2D< real > &A_original  /** MATRIZ  */)
 {
   /// HACER ALUMNO
+  Array2D<real> a = A_original.copy();
+
+  Array2D<real> B(a.dim1(), a.dim2());
+  for(int k = 0; k < a.dim1(); k++) B[k][k] = 1.;
+
+  for(int k = 0; k < B.dim1(); k++){
+    int kmax = max_pos(a, k);
+    if(kmax != k){
+        for(int j = k; j < a.dim1(); j++){
+            mn_pivotar(a[k][j], a[kmax][j]);
+            mn_pivotar(B[k][j], B[kmax][j]);
+        }
+    }
+    for(int i = k + 1; i < a.dim1(); i++){
+        real m = -a[i][k] / a[k][k];
+        a[i][k] = 0.;
+        for(int j = k + 1; j < a.dim1(); j++) a[i][j] += m * a[k][j];
+        for(int j = 0; j < a.dim1(); j++) B[i][j] += m * B[k][j];
+    }
+  }
+  return mn_remonte(a, B);
 
 
 }
