@@ -10,7 +10,27 @@ antes de entrar en la función.
 int mn_LU_factorization(Array2D< real > &A,Array2D< real > &L,Array2D< real > &U){
 
    /// HACER ALUMNO
+    int N = A.dim1();
+    L=Array2D< real >(N,N,0.);
+    U=Array2D< real >(N,N,0.);
+    for(int i = 0; i < A.dim1(); i++){
+        L[i][i] = 1;
+        real sum = 0.;
+        for(int k = 0; k < i; k++) sum += L[i][k] * U[k][i];
+        U[i][i] = A[i][i] - sum;
+        sum = 0.;
 
+        for(int j = i + 1; j < A.dim1(); j++){
+            for(int k = 0; k < i; k++) sum += L[i][k] * U[k][j];
+            U[i][j] = A[i][j] - sum;
+            sum = 0.;
+
+            for(int k = 0; k < i; k++) sum += L[j][k] * U[k][i];
+            L[j][i] = (1/U[i][i]) * (A[j][i] - sum);
+            sum = 0.;
+        }
+    }
+    return 0;
 }
 
 /// RESOLUCIÓN SISTEMA A PARTIR FACTORIZACIÓN LU
@@ -20,7 +40,8 @@ Array2D< real > &U /** MATRIZ U DE LA FACTORIZACIÓN LU DE A */,
 Array1D< real > &b /** TÉRMINO INDEPENDIENTE DEL SISTEMA */)
 {
   /// HACER ALUMNO
-
+    Array1D<real> c = mn_descenso(L, b);
+    return mn_remonte(U, c);
 
 }
 
