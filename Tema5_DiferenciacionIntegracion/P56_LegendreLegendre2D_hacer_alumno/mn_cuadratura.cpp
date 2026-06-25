@@ -26,6 +26,23 @@ Array2D< real > &w, /** matriz con los pesos de la tabla de cuadratura para el i
 int N) /** Nº de puntos a usar en la fórmula de cuadratura */
 {
    /// HACER ALUMNO
+    int fila = N - 1;
+    real sum = 0;
 
+    //centros de x e y
+    real mx = (a+b)*0.5;
+    real my = (c+d)*0.5;
+
+    //factores de escala
+    real factx = (b-a)*0.5;
+    real facty = (d-c)*0.5;
+
+    for(int i = 0; i < N; i++){
+        real xi = factx * x[fila][i] + mx;  //transformar puntos
+        for(int j = 0; j < N; j++){
+            real yj = facty*x[fila][j] + my;
+            sum += w[fila][i] * w[fila][j] * f(xi, yj); //sumar contribucion en ese punto
+        }
+    }
+    return sum * facty * factx; //multiplicamos para descartar cambio de variable
 }
-
