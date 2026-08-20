@@ -25,13 +25,6 @@ real a /** extremo izquierdo del intervalo */,
 real b /** extremo derecho del invervalo*/,
 int N /** numero de intervalos para calcular la integral */)
 {
-    real h = (b - 1) / N;
-    real suma = 0.;
+   /// HACER ALUMNO
 
-    for(int k = 0; k < N; k++){
-        real xk = a + h*k;
-        real xk1 = xk + h;
-        suma += f((xk1 + xk)*0.5)*h;
-    }
-    return suma;
 }

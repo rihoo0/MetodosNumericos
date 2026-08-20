@@ -27,28 +27,8 @@ Array1D< real > mn_gauss(
 Array2D< real > &A_original  /** MATRIZ DEL SISTEMA */,
 Array1D< real > &b_original) /** VECTOR DE TERMINOS INDEPENDINENTES */
 {
-    //Hacer alumno
-    Array2D<real> A = A_original.copy();
-    Array1D<real> b = b_original.copy();
+  /// HACER ALUMNO
 
-    for(int k = 0; k < b.dim(); k++){
-        int kmax = max_pos(A, k);
-        if(kmax != k){
-            for(int j = k; j < b.dim(); j++){
-                mn_pivotar(A[k][j], A[kmax][j]);
-            }
-            mn_pivotar(b[k], b[kmax]);
-        }
-        for(int i = k + 1; i < b.dim(); i++){
-            real m = -A[i][k] / A[k][k];
-            A[i][k] = 0.;
-            for(int j = k + 1; j < b.dim(); j++){
-                A[i][j] += m * A[k][j];
-            }
-            b[i] += m * b[k];
-        }
-    }
-    return mn_remonte(A, b);
 }
 
 /// -----------------------------------------------------------

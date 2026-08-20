@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include "../mn_calculo_de_ceros.h"
 #include <stdlib.h>
@@ -18,7 +17,7 @@ using namespace std;
 
 
 /// PARAMETROS DE LA DISTRIBUCIÓN Gamma
-extern real d,alfa,beta1;
+extern real d,alfa,beta;
 
 /// DEFINIMOS UNA FUNCIÓN AUXILIAR PARA EXPRESAR LA ECUACIÓN Gamma(x)=0.01 COMO f(x)=0
 real f(real x){ return Gamma(x)-0.01;}
@@ -80,4 +79,5 @@ int main()
 
 
 }
+
 

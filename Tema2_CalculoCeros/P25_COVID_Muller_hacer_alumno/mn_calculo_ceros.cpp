@@ -5,34 +5,34 @@
 using namespace std;
 
 /// PARAMETROS DE LA DISTRIBUCION GAMMA
-real alfa,beta1,d;
+real alfa,beta,d;
 
 /// DISTRIBUCIÓN GAMMA
 real Gamma(real x){
   if(x<0) return 0;
-  return d*pow(x,alfa-1.)*exp(-beta1*x);
+  return d*pow(x,alfa-1.)*exp(-beta*x);
 }
 
 /// DERIVADA DE LA DISTRIBUCIÓN GAMMA
 real Gammap(real x){
   if(x<0) return 0;
-  return d*(alfa-1)*pow(x,alfa-2.)*exp(-beta1*x)-d*beta1*pow(x,alfa-1.)*exp(-beta1*x);
+  return d*(alfa-1)*pow(x,alfa-2.)*exp(-beta*x)-d*beta*pow(x,alfa-1.)*exp(-beta*x);
 }
 
 /// CALCULO DE LOS PARÁMETROS DE LA DISTRIBUCIÓN GAMMA A PARTIR DE LA
 /// MEDIA Y VARIANZA MUESTRAL
 void calculo_parametros_Gamma(real media, real varianza){
-  /// calculo de alfa y beta1
-  beta1=media/varianza;
-  alfa=media*beta1;
+  /// calculo de alfa y beta
+  beta=media/varianza;
+  alfa=media*beta;
 
   /// calculo de d a través de la integral (se verá en el tema 5)
   real h=0.001;
   real suma=0;
-  for(real x=0;x<100;x+=h) suma+=h*pow(x,alfa-1.)*exp(-beta1*x);
+  for(real x=0;x<100;x+=h) suma+=h*pow(x,alfa-1.)*exp(-beta*x);
   d=1./suma;
 
-  cout << "\nalfa = " << alfa << " beta1 = " << beta1 << " d = " << d << "\n";
+  cout << "\nalfa = " << alfa << " beta = " << beta << " d = " << d << "\n";
 
 }
 
@@ -74,29 +74,6 @@ real TOL) /// tolerancia para parar el algoritmo
 {
   /// HACER ALUMNO
 
-
-    for(int i = 0; i < NiterMax; i++){
-        real fx0 = f(x0);
-        real derivada1 = mn_derivada1(f, x0);
-        real derivada2 = mn_derivada2(f, x0);
-
-        if(fx0 == 0) return i + 1;
-
-        real z1, z2;
-
-        real roots = mn_ceros_pol_grado_2(derivada2 * 0.5, derivada1, fx0, z1, z2);
-
-        if(roots == 0) return -1;
-
-        real x1 = x0 + z1;
-
-        if(mn_distancia(x1, x0) < TOL){
-            x0 = x1;
-            return i + 1;
-        }
-        x0 = x1;
-    }
-    return -1;
 }
 
 /// APROXIMACIÓN DERIVADA PRIMERA DE UNA FUNCIÓN
