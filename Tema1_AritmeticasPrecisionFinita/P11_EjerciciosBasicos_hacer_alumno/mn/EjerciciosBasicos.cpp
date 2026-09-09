@@ -4,21 +4,35 @@
 
 /// P11.1 FUNCIÓN QUE CALCULA LA MEDIA DE UN VECTOR
 real mn_media(Array1D< real > &u){
+    real media = u[0];
+    for(int i = 1; i < u.dim(); i++) media += u[i];
+    return media/u.dim();
 
 }
 
 /// P11.2 FUNCIÓN QUE CALCULA EL MAXIMO DE UN VECTOR
 real mn_max(Array1D< real > &u){
+    real mayor = u[0];
+    for(int i = 1; i < u.dim(); i++){
+        if(mayor < u[i]) mayor = u[i];
+    }
+    return mayor;
 
 }
 
 /// P11.3 FUNCIÓN QUE CALCULA EL MINIMO DE UN VECTOR
 real mn_min(Array1D< real > &u){
+    real menor = u[0];
+    for(int i = 1; i < u.dim(); i++){
+        if(menor > u[i]) menor = u[i];
+    }
+    return menor;
 
 }
 
 /// P11.4 FUNCIÓN QUE ORDENA UN VECTOR DE MENOR A MAYOR
 void mn_ordenar(Array1D< real > &u){
+
 
 }
 
