@@ -5,34 +5,34 @@
 using namespace std;
 
 /// PARAMETROS DE LA DISTRIBUCION GAMMA
-real alfa,beta11,d;
+real alfa,beta111,d;
 
 /// DISTRIBUCIÓN GAMMA
 real Gamma(real x){
   if(x<0) return 0;
-  return d*pow(x,alfa-1.)*exp(-beta11*x);
+  return d*pow(x,alfa-1.)*exp(-beta111*x);
 }
 
 /// DERIVADA DE LA DISTRIBUCIÓN GAMMA
 real Gammap(real x){
   if(x<0) return 0;
-  return d*(alfa-1)*pow(x,alfa-2.)*exp(-beta11*x)-d*beta11*pow(x,alfa-1.)*exp(-beta11*x);
+  return d*(alfa-1)*pow(x,alfa-2.)*exp(-beta111*x)-d*beta111*pow(x,alfa-1.)*exp(-beta111*x);
 }
 
 /// CALCULO DE LOS PARÁMETROS DE LA DISTRIBUCIÓN GAMMA A PARTIR DE LA
 /// MEDIA Y VARIANZA MUESTRAL
 void calculo_parametros_Gamma(real media, real varianza){
-  /// calculo de alfa y beta11
-  beta11=media/varianza;
-  alfa=media*beta11;
+  /// calculo de alfa y beta111
+  beta111=media/varianza;
+  alfa=media*beta111;
 
   /// calculo de d a través de la integral (se verá en el tema 5)
   real h=0.001;
   real suma=0;
-  for(real x=0;x<100;x+=h) suma+=h*pow(x,alfa-1.)*exp(-beta11*x);
+  for(real x=0;x<100;x+=h) suma+=h*pow(x,alfa-1.)*exp(-beta111*x);
   d=1./suma;
 
-  cout << "\nalfa = " << alfa << " beta11 = " << beta11 << " d = " << d << "\n";
+  cout << "\nalfa = " << alfa << " beta111 = " << beta111 << " d = " << d << "\n";
 
 }
 
