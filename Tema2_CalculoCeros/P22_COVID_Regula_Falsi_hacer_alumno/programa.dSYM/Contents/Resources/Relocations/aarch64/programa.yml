@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     'Tema2_CalculoCeros/P22_COVID_Regula_Falsi_hacer_alumno/programa'
+relocations:     []
+...

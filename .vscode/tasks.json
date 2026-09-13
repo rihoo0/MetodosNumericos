@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar ejercicio",
+            "type": "shell",
+            "command": "clang++ -std=c++11 -g -I. -I\"${fileDirname}/tnt_array\" \"${fileDirname}\"/*.cpp -o \"${fileDirname}/programa\"",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: clang compilar archivo activo",
+            "command": "/usr/bin/clang",
+            "args": [
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Tarea generada por el depurador."
+        }
+    ]
+}
