@@ -12,7 +12,7 @@
 #include "../mn_svg.h"
 
 
-main()
+int main()
 {
 
    /// DESARROLLO DE UN EJEMPLO DEL LIBRO

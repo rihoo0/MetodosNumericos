@@ -8,6 +8,7 @@ Array1D<real> &f, /// valores de función en los puntos de interpolación
 real x0)  /// punto donde se evalua la función interpolada
 {
   /// HACER ALUMNO
+    
 
 }
 

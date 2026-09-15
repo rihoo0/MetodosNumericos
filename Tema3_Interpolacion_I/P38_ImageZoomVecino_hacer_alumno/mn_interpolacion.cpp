@@ -12,5 +12,23 @@ Array2D< real > &A /** IMAGEN ORIGINAL */,
 real z /** FACTOR DE ZOOM */)
 {
   /// HACER ALUMNO
+  int dim1New=A.dim1()*z;
+  int dim2New=A.dim2()*z;
 
+  if(dim1New<=0 || dim2New<=0) return Array2D< real >();
+
+  Array2D< real > B(dim1New,dim2New);
+
+  for(int ip=0;ip<B.dim1();ip++){
+    for(int jp=0;jp<B.dim2();jp++){
+      real x=ip/z;
+      real y=jp/z;
+      int i=x;
+      int j=y;
+      if((x-i)>0.5 && i+1<A.dim1()) i=i+1;
+      if((y-j)>0.5 && j+1<A.dim2()) j=j+1;
+      B[ip][jp]=A[i][j];
+    }
+  }
+  return B;
 }

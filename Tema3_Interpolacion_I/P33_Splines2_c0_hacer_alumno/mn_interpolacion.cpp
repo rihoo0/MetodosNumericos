@@ -15,7 +15,19 @@ Array1D< real > &b,       /// vector de salida con los coeficientes b[i] del spl
 Array1D< real > &c)       /// vector de salida con los coeficientes c[i] del spline de grado 2
 {
   /// HACER ALUMNO
-
+    a = Array1D<real>(x.dim() - 1);
+    b = Array1D<real>(x.dim() - 1);
+    c = Array1D<real>(x.dim() - 1);
+    
+    for(int i = 0; i < x.dim() - 1; i++) a[i] = f[i];
+    b[0] = (f[1] - f[0] - c0 * (x[1] - x[0])* (x[1] - x[0])) / (x[1] - x[0]);
+    c[0] = c0;
+    
+    for(int i = 1; i < x.dim() - 1;i++){
+        b[i] = b[i - 1] + 2 * c[i - 1] * (x[i] - x[i - 1]);
+        c[i] = (f[i + 1] - f[i] - b[i] * (x[i + 1] - x[i])) / ((x[i + 1] - x[i])*(x[i + 1] - x[i]));
+    }
+    return 0;
 }
 
 /**
@@ -29,6 +41,11 @@ Array1D< real > &b,
 Array1D< real > &c,
 real x0 ){
   /// HACER ALUMNO
-
+    for(int i = x.dim() - 2; i > 0; i--){
+        if(x0 >= x[i]){
+            return a[i] + b[i] * (x0 - x[i]) + c[i] * (x0 - x[i]) * (x0 - x[i]);
+        }
+    }
+    return a[0] + b[0] * (x0 - x[0]) + c[0] * (x0 - x[0]) * (x0 - x[0]);
 }
 

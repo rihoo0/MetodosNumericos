@@ -12,7 +12,7 @@
 #include "../mn_svg.h"
 
 
-main()
+int main()
 {
 
    /// PRÁCTICA DE INTERPOLACIÓN POR EL MÉTODO DE SPLINES DE GRADO 2 CON LA CONDICIÓN cN=0

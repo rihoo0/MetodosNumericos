@@ -6,7 +6,7 @@
 #include "../mn_interpolacion.h"
 #include "../mn_svg.h"
 
-main()
+int main()
 {
    /// PRÁCTICA DE INTERPOLACIÓN POR EL MÉTODO DE INTERPOLACIÓN LINEAL
    /// SE ESTUDIA EL NÚMERO DE FALLECIMIENTOS POR EDAD DE LA PRIMERA OLA DE

@@ -57,8 +57,43 @@ Array1D< real > &d)       /// vector de salida con los coeficientes d[i] del spl
   /// solucion_sistema(L,M,U,B);
   /// (c[i+1]-c[i])/(3*h[i]);
   /// (f[i+1]-f[i])/h[i] - h[i]*(2*c[i]+c[i+1])/3;
-
-
+    int N = x.dim() - 1;
+    
+    a = Array1D<real>(N);
+    b = Array1D<real>(N);
+    d = Array1D<real>(N);
+    
+    Array1D<real> h(N);
+    for(int i = 0; i < N; i++) h[i] = x[i + 1] - x[i];
+    
+    Array1D<real> M(N + 1);
+    M[0] = 1;
+    for(int i = 1; i < N; i++) M[i] = 2 * (h[i - 1] + h[i]);
+    M[N] = 1;
+                    
+    Array1D<real> L(N);
+    for(int i = 0; i < N - 1; i++) L[i] = h[i];
+    L[N - 1] = 0;
+    
+    Array1D<real> U(N);
+    U[0] = 0;
+    for(int i = 1; i < N; i++) U[i] = h[i];
+    
+    Array1D<real> B(N + 1);
+    B[0] = c0;
+    B[N] = cN;
+    for(int i = 1; i < N; i++) B[i] = ((3*(f[i + 1] - f[i]))/(h[i])) - ((3*(f[i] - f[i - 1]))/(h[i - 1]));
+    
+    c = solucion_sistema(L, M, U, B);
+    if(c.dim() == 0) return -1;
+    
+    for(int i = 0; i < N; i++){
+        a[i] = f[i];
+        d[i] = (c[i + 1] - c[i]) / (3 * h[i]);
+        b[i] = ((f[i + 1] - f[i])/(h[i])) - ((h[i]*(2*c[i] + c[i + 1]))/3);
+    }
+            
+    return 0;
 
 }
 
@@ -74,6 +109,13 @@ Array1D< real > &c,
 Array1D< real > &d,
 real x0 ){
   /// HACER ALUMNO
-
+    int dim = a.dim();
+    
+    for(int i = dim - 1; i > 0; i--){
+        real h = (x0 - x[i]);
+        if(x0 >= x[i]) return
+            a[i] + b[i]*h + c[i]*h*h + d[i]*h*h*h;
+    }
+    return a[0] + b[0]*(x0 - x[0]) + c[0]*(x0 - x[0])*(x0 - x[0]) + d[0]*(x0 - x[0])*(x0 - x[0])*(x0 - x[0]);;
 }
 
