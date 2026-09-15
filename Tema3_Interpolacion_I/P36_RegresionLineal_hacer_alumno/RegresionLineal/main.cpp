@@ -6,7 +6,7 @@
 #include "../mn_interpolacion.h"
 
 
-main()
+int main()
 {
    /// PRÁCTICA DE INTERPOLACIÓN POR EL MÉTODO DE LA REGRESIÓN LINEAL
    /// SE ESTUDIA EL NÚMERO DE FALLECIMIENTOS POR EDAD DE LA PRIMERA OLA DE

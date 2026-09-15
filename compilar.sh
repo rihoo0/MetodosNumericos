@@ -15,7 +15,8 @@ if [ ! -d "$PRACTICA" ]; then
 fi
 
 # 1. Buscar el/los .cbp dentro de la practica
-CBPS=(); while IFS= read -r f; do CBPS+=("$f"); done < <(find "$PRACTICA" -name "*.cbp")
+CBPS=()
+while IFS= read -r f; do CBPS+=("$f"); done < <(find "$PRACTICA" -name "*.cbp")
 
 if [ ${#CBPS[@]} -eq 0 ]; then
   echo "No se encontro ningun .cbp dentro de: $PRACTICA"
@@ -33,12 +34,12 @@ CBPDIR="$(dirname "$CBP")"
 
 echo "Proyecto detectado: $CBP"
 
-# 2. Extraer los .cpp listados en el .cbp (rutas relativas al .cbp)
+# 2. Extraer los .cpp y .c listados en el .cbp (rutas relativas al .cbp)
 RELSRCS=()
-while IFS= read -r f; do RELSRCS+=("$f"); done < <(grep -o 'Unit filename="[^"]*\.cpp"' "$CBP" | sed -E 's/Unit filename="(.*)"/\1/')
+while IFS= read -r f; do RELSRCS+=("$f"); done < <(grep -o 'Unit filename="[^"]*\.\(cpp\|c\)"' "$CBP" | sed -E 's/Unit filename="(.*)"/\1/')
 
 if [ ${#RELSRCS[@]} -eq 0 ]; then
-  echo "El .cbp no lista ningun .cpp, revisalo a mano."
+  echo "El .cbp no lista ningun .cpp/.c, revisalo a mano."
   exit 1
 fi
 
